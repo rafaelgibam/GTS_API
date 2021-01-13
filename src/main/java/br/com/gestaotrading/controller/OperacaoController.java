@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.gestaotrading.domain.Operacao;
 import br.com.gestaotrading.repository.OperacaoRepository;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 
 @RequestMapping("/operacoes")
 @RestController
@@ -25,29 +27,34 @@ public class OperacaoController {
 	private OperacaoRepository operacaoRepository;
 	
 	@GetMapping
+	@ApiOperation(value = "", authorizations =  { @Authorization(value="Bearer") })
 	public Page<Operacao> getPage(Pageable pageable) {
 		return operacaoRepository.findAll(pageable);
 	}
 	
 	@GetMapping("/all")
+	@ApiOperation(value = "", authorizations =  { @Authorization(value="Bearer") })
 	public List<Operacao> getAll() {
 		return operacaoRepository.findAll();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
+	@ApiOperation(value = "", authorizations =  { @Authorization(value="Bearer") })
 	public Operacao save(@RequestBody Operacao banca) {
 		return operacaoRepository.save(banca);
 	}
 	
 	@PutMapping("/{id}")
+	@ApiOperation(value = "", authorizations =  { @Authorization(value="Bearer") })
 	public Operacao update(@RequestBody Operacao banca, @PathVariable Long id) {
 		banca.setId(id);
 		return operacaoRepository.save(banca);
 	}
 	
-	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@ApiOperation(value = "", authorizations =  { @Authorization(value="Bearer") })
 	public void delete(@PathVariable Long id) {
 		operacaoRepository.deleteById(id);
 	}
