@@ -2,6 +2,7 @@ package br.com.gestaotrading.domain;
 
 
 import lombok.Data;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.persistence.*;
 
@@ -17,7 +18,9 @@ public class Perfil {
     @Column(name = "TP_PERFIL")
     private String tipo_perfil;
 
-
+    @OneToMany
+    @JsonProperty("usuario")
+    private Usuario usuario; //arrayList de Usuarios
 
 
 }
