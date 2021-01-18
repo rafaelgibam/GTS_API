@@ -16,7 +16,7 @@ public class PlanoAssinatura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_PLANOS")
-    private long id;
+    private Long id;
 
     @Column(name = "NOME_PLANO")
     private String nomePlano;
