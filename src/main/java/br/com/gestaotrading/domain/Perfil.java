@@ -16,11 +16,14 @@ public class Perfil {
     private long id;
 
     @Column(name = "TP_PERFIL")
-    private String tipo_perfil;
+    private String tipoPerfil;
 
     @OneToMany
     @JsonProperty("usuario")
     private Usuario usuario; //arrayList de Usuarios
 
+    @OneToOne
+    @JsonProperty("plano_assinatura")
+    private PlanoAssinatura planoAssinatura;
 
 }

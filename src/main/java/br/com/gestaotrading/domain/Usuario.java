@@ -14,14 +14,14 @@ public class Usuario {
     @Column(name = "ID_USUARIO")
     private long id;
 
-    @Column(name = "NOME")
-    private String name;
+    @Column(name = "NOME_USUARIO")
+    private String nomeUsuario;
 
-    @Column(name = "EMAIL")
-    private String email;
+    @Column(name = "EMAIL_USUARIO")
+    private String usuarioEmail;
 
-    @Column(name = "SENHA")
-    private String senha;
+    @Column(name = "SENHA_USUARIO")
+    private String senhaUsuario;
 
     @OneToOne
     @JsonProperty("perfil")
